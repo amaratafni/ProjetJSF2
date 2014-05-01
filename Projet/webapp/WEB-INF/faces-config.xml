@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<faces-config version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+
+
+	<application>
+		<el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver>
+	</application>
+
+	<navigation-rule>
+		<from-view-id>*</from-view-id>
+		<navigation-case>
+			<from-outcome>CompteUser</from-outcome>
+			<to-view-id>/pages/utilisateur/CompteUser.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>rechercheResultat</from-outcome>
+			<to-view-id>/pages/recherche/resultat.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>succesFiltre</from-outcome>
+			<to-view-id>/pages/utilisateur/succesFiltre.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>acceuil</from-outcome>
+			<to-view-id>/pages/acceuil/acceuil.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>listeAnnonce</from-outcome>
+			<to-view-id>/pages/admin/Supprimer_annonce.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>listeutilisateur</from-outcome>
+			<to-view-id>/pages/admin/Supprimer_User.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	
+</navigation-rule>
+
+
+</faces-config>

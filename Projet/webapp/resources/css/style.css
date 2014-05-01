@@ -1,0 +1,44 @@
+body,td,th {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #5D5D5D;	
+}
+body {
+	background-color: #282828;	
+	margin-top: 0px;
+	margin-left:12%;	
+	margin-bottom: 0px;
+	background-image: url(images/taling.jpg);
+	background-repeat:repeat-x;
+	position: absolute;	
+}
+a:link {
+	color: #95C0E6;
+}
+a:visited {
+	color: #95C0E6;
+}
+a:hover {
+	color: #95C0E6;
+}
+a:active {
+	color: #95C0E6;
+}
+.style1 {
+	font-size: 24px;
+	color: #000000;
+}
+.style2 {color: #000000}
+.style3 {
+	font-size: 24px;
+	font-weight: bold;
+	color: #000000;
+}
+.style4 {
+	font-size: 24px;
+	color: #313131;
+}
+form{
+margin:0px;padding:0px;
+}
+.style5 {color: #FFFFFF}

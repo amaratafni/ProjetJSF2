@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:composition template="../../template/templetteUtilisateur.xhtml">
+		<ui:define name="content">
+			<f:view>
+				<div id="formulaire_AjouterAnnonnce">
+					<h:form>
+						<h4>Ajouter une Alerte :</h4>
+
+						<fieldset style="width: 400px; height: 180px;">
+							<table>
+								<tr>
+									<td>Type Bien:</td>
+									<td><h:selectOneMenu id="typeBien"
+											value="#{filtreBean.filtre.typeBien}" required="true"
+											requiredMessage="champs obligatoire">
+											<f:selectItem itemLabel="" itemValue="" />
+											<f:selectItem itemLabel="Appartement" itemValue="Appartement" />
+											<f:selectItem itemLabel="Studio" itemValue="Studio" />
+											<f:selectItem itemLabel="Chambre" itemValue="Chambre" />
+										</h:selectOneMenu></td>
+								</tr>
+								<tr>
+									<td>Type Annonce:</td>
+									<td><h:selectOneMenu id="typeAnn" required="true"
+											requiredMessage="champs obligatoire"
+											value="#{filtreBean.filtre.typeAnnonce}">
+											<f:selectItem itemLabel="" itemValue="" />
+											<f:selectItem itemLabel="Vente" itemValue="Vente" />
+											<f:selectItem itemLabel="Location" itemValue="Location" />
+										</h:selectOneMenu></td>
+								</tr>
+
+								<tr>
+									<td>Surface</td>
+									<td><h:inputText id="sur"
+											value="#{filtreBean.filtre.surface}" required="true"
+											requiredMessage="champs obligatoire" />m2</td>
+								</tr>
+								<tr>
+									<td>Prix:</td>
+									<td><h:inputText id="prix"
+											value="#{filtreBean.filtre.prix}" required="true"
+											requiredMessage="champs obligatoire" />Euro.</td>
+								</tr>
+
+
+							<!-- 	<h:panelGrid columns="2" columnClasses="top,top">
+
+								</h:panelGrid> -->
+								<tr>
+									<h:form>
+
+										<td>
+											<div id="bouton_Filtre">
+												<h:commandButton value="Valider"
+													action="#{filtreBean.creerFiltre}"
+													styleClass="avesettings" />
+												<h:commandButton value="Annuler" immediate="true"
+													action="#{annonceBean.annulerInsertionAdresse}"
+													styleClass="avesettings" />
+											</div>
+										</td>
+
+									</h:form>
+								</tr>
+								<tr>
+									<td></td>
+								</tr>
+
+							</table>
+						</fieldset>
+					</h:form>
+				</div>
+			</f:view>
+		</ui:define>
+
+	</ui:composition>
+</ui:composition>
+
+

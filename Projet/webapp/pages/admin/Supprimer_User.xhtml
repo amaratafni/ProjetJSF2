@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:composition template="../../template/templateAdmin.xhtml">
+		<ui:define name="content">
+
+			<f:view>
+
+				<h:form id="form">
+
+					<p:growl id="messages" showDetail="true" autoUpdate="true" />
+					<div id="corp">
+						<p:dataTable styleClass="tableAnnonce" var="car"
+							value="#{adminBean.utilisateurs}" id="carList" editable="true"
+							style="width: 429px; height: 300px;">
+
+							<f:facet name="header">  
+          					 liste des utilisateurs : 
+       					 </f:facet>
+
+							<p:ajax event="rowEdit" listener="#{adminBean.onEdit}"
+								update=":form:messages" />
+
+
+							<p:column headerText="alias" style="width:30%">
+								<p:cellEditor>
+									<f:facet name="output">
+										<h:outputText value="#{car.alias}" />
+									</f:facet>
+									<f:facet name="input">
+										<p:inputText value="#{car.alias}" style="width:100%" />
+									</f:facet>
+								</p:cellEditor>
+							</p:column>
+
+							<p:column headerText="name" style="width:20%">
+								<p:cellEditor>
+									<f:facet name="output">
+										<h:outputText value="#{car.name}" />
+									</f:facet>
+									<f:facet name="input">
+										<p:inputText value="#{car.name}" style="width:100%"
+											label="name" />
+									</f:facet>
+								</p:cellEditor>
+							</p:column>
+
+							<p:column headerText="email" style="width:24%">
+								<p:cellEditor>
+									<f:facet name="output">
+										<h:outputText value="#{car.email}" />
+									</f:facet>
+									<f:facet name="input">
+										<p:inputText value="#{car.email}" style="width:100%"
+											label="email" />
+									</f:facet>
+								</p:cellEditor>
+							</p:column>
+
+							<p:column headerText="etat" style="width:20%">
+								<p:cellEditor>
+									<f:facet name="output">
+										<h:outputText value="#{car.etat}" />
+									</f:facet>
+									<f:facet name="input">
+										<f:facet name="input">
+											<p:inputText value="#{car.etat}" style="width:100%"
+												label="etat" />
+										</f:facet>
+
+									</f:facet>
+								</p:cellEditor>
+							</p:column>
+
+							<p:column style="width:6%">
+								<p:rowEditor />
+							</p:column>
+
+						</p:dataTable>
+					</div>
+
+				</h:form>
+
+
+			</f:view>
+
+
+		</ui:define>
+
+
+	</ui:composition>
+</ui:composition>
+
+

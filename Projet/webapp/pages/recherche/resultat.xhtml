@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:composition template="../../template/commonLayout.xhtml">
+		<ui:define name="content">
+
+			<f:view>
+
+				<h:form id="form">
+					<h2>Bien a savoir :</h2>
+					<h4>Les annonces sont mis a jour chaque jour, vous pouvez
+						contacter le propriétaire pour votre annonce</h4>
+
+					<h:commandLink action="acceuil">
+
+						<h1>
+							<h:outputText value="Espace recherche" styleClass="lienCommande" />
+						</h1>
+
+					</h:commandLink>
+
+					<h1>Resulats de la recherche :</h1>
+					<p:dataGrid var="car" value="#{rechercheBean.listAnnonce}"
+						columns="3" rows="6" paginator="true"
+						paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+						rowsPerPageTemplate="9,12,15">
+
+						<p:panel header="#{car.typeBien}" style="text-align:center">
+							<h:panelGrid columns="1" style="width:100%">
+								<p:graphicImage value="../../images/annonce/#{car.cheminphoto}"
+									style="width: 200px; height: 150px;" />
+
+								<h:outputText value="#{car.titre}" />
+
+								<p:commandLink update=":form:carDetail"
+									oncomplete="PF('carDialog').show()" title="View Detail">
+									<h:outputText styleClass="ui-icon ui-icon-search"
+										style="margin:0 auto;" />
+									<f:setPropertyActionListener value="#{car}"
+										target="#{rechercheBean.selectedCar}" />
+								</p:commandLink>
+							</h:panelGrid>
+						</p:panel>
+
+					</p:dataGrid>
+					<!--  Diaglogue  /////////////////////////////////////////////////////////////////////////// -->
+					<p:dialog header="Detail annonce" widgetVar="carDialog"
+						modal="true">
+						<p:outputPanel id="carDetail" style="text-align:center;">
+
+							<p:graphicImage
+								value="../../images/annonce/#{rechercheBean.selectedCar.cheminphoto}" />
+
+							<h:panelGrid columns="2" cellpadding="5">
+								<h:outputLabel for="modelNo" value="Type Bien : " />
+								<h:outputText id="modelNo"
+									value="#{rechercheBean.selectedCar.typeBien}" />
+
+								<h:outputLabel for="titre" value="Titre: " />
+								<h:outputText id="titre"
+									value="#{rechercheBean.selectedCar.titre}" />
+								<h:outputLabel for="description" value="Description: " />
+								<h:outputText id="description"
+									value="#{rechercheBean.selectedCar.description}" />
+
+								<h:outputLabel for="prix" value="Prix :  " />
+								<h:outputText id="prix"
+									value="#{rechercheBean.selectedCar.prix}" />
+								<h:outputLabel for="email" value="Email :  " />
+								<h:outputText id="email"
+									value="#{rechercheBean.selectedCar.email}" />
+								<h:outputLabel for="tel" value="Tel :  " />
+								<h:outputText id="tel"
+									value="#{rechercheBean.selectedCar.numTel}" />
+								<h:outputLabel for="ville" value="Ville :  " />
+								<h:outputText id="ville"
+									value="#{rechercheBean.selectedCar.adresse.ville}" />
+							</h:panelGrid>
+						</p:outputPanel>
+					</p:dialog>
+					<p></p>
+					<p></p>
+					<h2>To Contact</h2>
+					<!--  formulaite contact /////////////////////////////////////////////////////////////////////////// -->
+					<p:fieldset>
+						<h:form id="form">
+							<h2>Formulaire de Contact :</h2>
+
+
+							<h:outputText value="Contact email *  : " />
+							<p:inputText id="champs1" value="#{messageBean.emailClient}" />
+
+							<h:outputText value="mon Email * : " />
+							<p:inputText id="champs2"
+								value="#{messageBean.emailProprieatire}" />
+
+							<p></p>
+
+
+
+
+							<p:editor id="editor" value="#{messageBean.value}" width="600" />
+
+							<h:panelGrid columns="2" style="margin-top:10px">
+								<p:commandButton id="submitButton" value="Submit"
+									update="display" oncomplete="PF('dlg').show()"
+									icon="ui-icon-disk" action="#{messageBean.message}" />
+								<p:commandButton id="clearButton" type="button" value="Clear"
+									onclick="PF('editor').clear()" icon="ui-icon-close" />
+							</h:panelGrid>
+
+							<p:dialog header="Info" widgetVar="dlg" showEffect="fade"
+								hideEffect="fade" modal="true">
+								<h:outputText id="display" value="#{messageBean.resultatEnvoie}"
+									escape="false" />
+							</p:dialog>
+
+						</h:form>
+					</p:fieldset>
+				</h:form>
+
+			</f:view>
+		</ui:define>
+	</ui:composition>
+</ui:composition>

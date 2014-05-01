@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+	<ui:composition template="../../template/commonLayout.xhtml">
+		<ui:define name="content">
+			<f:view>
+				<h:form id="id">
+					<table>
+						<tr>
+							<td><div id="idImage">
+									<img src="#{request.contextPath}/images/apart2.jpg" alt=""
+										width="500" height="360" />
+								</div></td>
+						</tr>
+
+					</table>
+
+					<div id="idInscription">
+
+						<fieldset style="width: 380px; height: 180px;">
+
+							<!-- je vais mettre ici : la photo -->
+
+
+							<table id="tableInscription">
+								<tr>
+									<td align="center">Nom</td>
+									<td><h:inputText id="nom"
+											value="#{utilisateurBean.utilisateur.name}" required="true"
+											requiredMessage="champs obligatoire" /> <h:message for="nom" /></td>
+
+								</tr>
+								<tr>
+									<td align="center">Prenom:</td>
+									<td><h:inputText id="prenom"
+											value="#{utilisateurBean.utilisateur.prenom}" required="true"
+											requiredMessage="champs obligatoire" /> <h:message
+											for="prenom" /></td>
+								</tr>
+								<tr>
+									<td align="center">E-mail:</td>
+									<td><h:inputText id="mail"
+											value="#{utilisateurBean.utilisateur.email}" required="true"
+											requiredMessage="champs obligatoire" /> <h:message
+											for="mail" /></td>
+								</tr>
+								<tr>
+									<td align="center">Alias</td>
+									<td><h:inputText id="alias"
+											value="#{utilisateurBean.utilisateur.alias}" required="true"
+											requiredMessage="champs obligatoire"
+											validator="#{utilisateurBean.validerAlias}" /> <h:message
+											for="alias" /></td>
+								</tr>
+								<!-- <tr>
+									<td align="center">Mot de passe:</td>
+									<td><h:inputText id="pass" value="#{inscriptionBean.pass}"
+											required="true" requiredMessage="champs obligatoire" /></td>
+								</tr> -->
+								<tr>
+									<td></td>
+									<td align="center"><h:commandButton value="valider"
+											action="#{utilisateurBean.inscription}" /></td>
+								</tr>
+							</table>
+						</fieldset>
+					</div>
+				</h:form>
+			</f:view>
+		</ui:define>
+	</ui:composition>
+</ui:composition>
+
+

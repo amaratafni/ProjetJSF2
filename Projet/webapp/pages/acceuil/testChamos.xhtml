@@ -1,0 +1,54 @@
+<!-- <?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:composition template="../../template/commonLayout.xhtml">
+		<ui:define name="content">
+
+			<f:view>
+
+				<h:form id="form1">
+					<h:form id="form1">
+					
+						<p>input1: Enter something (but don't enter "Updated!").</p>
+						<p>
+							<h:inputText id="input1" value="#{bean.input1}" required="true"
+								styleClass="#{component.valid ? '' : 'error'}" />
+							<h:message for="input1" errorClass="error" />
+						</p>
+						<p>input2: Leave this field empty or enter a non-numeric value
+							to cause a validation failure.</p>
+						<p>
+							<h:inputText id="input2" value="#{bean.input2}" required="true"
+								styleClass="#{component.valid ? '' : 'error'}" />
+							<h:message for="input2" errorClass="error" />
+						</p>
+						<p>Press "submit" and then "update". The "update" simulates
+							changing model values externally.</p>
+						<p>
+							<h:commandButton value="Submit" action="#{bean.submit}">
+								<f:ajax execute="@form" render="@form" />
+							</h:commandButton>
+							<h:commandButton value="Update" action="#{bean.update}">
+								<f:ajax execute="@this" render="@form" />
+							</h:commandButton>
+						</p>
+					</h:form>
+
+				</h:form>
+
+
+			</f:view>
+		</ui:define>
+	</ui:composition>
+</ui:composition>
+ -->

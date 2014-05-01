@@ -1,0 +1,85 @@
+div#footer {
+	margin-top: 700px;
+}
+
+div#idRecherche {
+	margin-left: 55%;
+	margin-top: 5%;
+	margin-bottom: 50%;
+	margin-right: 50%;
+	position: absolute;
+}
+
+div#boutonReche {
+	position: absolute;
+	margin-left: 31%;
+	margin-top: 0%;
+	
+}
+
+div#idImage {
+	margin-left: 0%;
+	margin-top: 5%;
+	position: absolute;
+}
+
+div#authentification {
+	margin-top: -310px;
+	margin-left: 101%;
+	position: absolute;
+}
+
+.customTitleBar>.ui-panel-titlebar {
+	font-family: verdana;
+	font-weight: bold;
+	background-color: olive;
+}
+
+.classButton {
+	margin-left: 47px;
+}
+
+#authentification {
+	margin-left: 450px;
+}
+
+#menuSimple {
+	margin-left: -50%;
+	margin-top: 50px;
+	position: absolute;
+}
+
+.fentreConexion {
+	background-color: graytext;
+	color: green;
+}
+
+#menuGauche {
+	margin-left: -20px;
+	size: 24px;
+}
+
+#formulaire_AjouterAnnonnce {
+	margin-left: 350px;
+	margin-top: -520px;
+}
+#uplodPhoto{
+	position: absolute;
+	margin-left: 350px;
+	margin-top: 12px;
+}
+#image{
+	position: absolute;
+	margin-top : -70px;
+	margin-left: 950px;
+}
+#panelResulat{
+	position: absolute;
+	margin-top: 55px;
+	margin-left: 320px;
+}
+div#corp{
+	
+	margin-left: 250px;
+	margin-top: -860px;
+}

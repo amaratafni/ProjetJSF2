@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<h:form>
+
+
+		<!-- <p:menu>  
+        <p:submenu label="Gestion Annoces">  
+            <p:menuitem value="Ajouter" actionListener="{menuBean.save}"  icon="ui-icon-disk" />  
+            <p:menuitem value="Modifier" actionListener="{menuBean.update}" icon="ui-icon-arrowrefresh-1-w"/>  
+              <p:menuitem value="Supprimer" actionListener="{menuBean.save}"  icon="ui-icon-disk" />  
+        </p:submenu>  
+        
+        <p:submenu label="Gestion filtres">  
+            <p:menuitem value="Ajouter une alerte" actionListener="{menuBean.save}"  icon="ui-icon-disk" />  
+            <p:menuitem value="Modifier une alerte" actionListener="{menuBean.update}" icon="ui-icon-arrowrefresh-1-w"/>  
+            <p:menuitem value="Supprimerune alerte" actionListener="{menuBean.save}"  icon="ui-icon-disk" />  
+        </p:submenu>  
+    </p:menu>   -->
+
+
+
+		<ul id="menu-accordeon" style="width: 230px; height: 260px;">
+
+			<li><a href="#">Gestion annonces</a>
+				<ul>
+					<li><a href="Ajouter_annonce.xhtml">Ajouter une annonce</a></li>
+
+					<!--  ici je vais sélectionner toute les annonces dans un tableau -->
+					<li><a href="Modifier_annonce.xhtml">Modifier une annonce</a></li>
+					<!--  ici je vais sélectionner toute les annonces dans un tableau celle du client-->
+					<li><a href="#">Suprimer une annonce</a></li>
+				</ul></li>
+			<li><a href="#">Gestion Filtres</a>
+				<ul>
+					<li><a href="Ajouter_Filtre.xhtml">Ajouter une alerte</a></li>
+					<li><a href="#">Modifier une alerte</a></li>
+					<li><a href="#">Suprimer une alerte</a></li>
+
+				</ul></li>
+		</ul>
+		<div id="imageEspaceClien">
+
+			<img src="#{request.contextPath}/images/espaceClient.jpg" alt=""
+				width="200" height="60" />
+
+		</div>
+		<div id="form">
+			<h:form id="form">
+				<p:calendar value="#{calendarBean.date1}" mode="inline"
+					id="inlineCal" />
+
+				<p:dialog header="Selected Dates" widgetVar="dialog"
+					showEffect="fade" hideEffect="fade">
+
+					<h:panelGrid id="display" columns="2" cellpadding="5">
+						<h:outputText value="Inline Date:" />
+						<h:outputText value="#{calendarBean.date1}" id="inlineDate">
+							<f:convertDateTime pattern="d/M/yyyy" />
+						</h:outputText>
+						<h:outputText value="Popup Button Date: " />
+						<h:outputText value="#{calendarBean.date3}" id="popupButtonDate">
+							<f:convertDateTime pattern="d/M/yyyy" />
+						</h:outputText>
+					</h:panelGrid>
+				</p:dialog>
+			</h:form>
+		</div>
+	</h:form>
+
+</ui:composition>
